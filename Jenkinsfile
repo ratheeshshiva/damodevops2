@@ -4,7 +4,7 @@ pipeline {
     stage('Compile') {
       steps {
         script{
-                def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+                def mvnHome = tool name: 'maven', type: 'maven'
                 sh "${mvnHome}/bin/mvn package"
         }
       }
@@ -12,7 +12,7 @@ pipeline {
     stage('Building Docker Image') {
       steps{
         script {
-          sh "docker build -t saidamo/durgatest:$BUILD_NUMBER ."
+          sh "docker build -t ratheeshshiva/durgatest:$BUILD_NUMBER ."
         }
       }
     }
@@ -20,7 +20,7 @@ pipeline {
       steps{
         script {
           sh "echo $USER"
-          sh "docker login -u saidamo -p sairam2127!"
+          sh "docker login -u ratheeshshiva -p Ramya@@18"
           sh "docker push saidamo/durgatest:$BUILD_NUMBER"
           }
         }
