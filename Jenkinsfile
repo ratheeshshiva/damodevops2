@@ -12,7 +12,7 @@ pipeline {
     stage('Building Docker Image') {
       steps{
         script {
-          sh "docker build -t ratheeshshiva/RRRTEST:$BUILD_NUMBER ."
+          sh "docker build -t ratheeshshiva/rrrtest:$BUILD_NUMBER ."
         }
       }
     }
@@ -21,7 +21,7 @@ pipeline {
         script {
           sh "echo $USER"
           sh "docker login -u ratheeshshiva -p Ramya@@18"
-          sh "docker push ratheeshshiva/durgatest:$BUILD_NUMBER"
+          sh "docker push ratheeshshiva/rrrtest:$BUILD_NUMBER"
           }
         }
       }
